@@ -1,4 +1,4 @@
-GAMS 42.5.0  cf11b917 Mar 30, 2023          WEX-WEI x86 64bit/MS Windows - 04/02/25 15:29:50 Page 1
+GAMS 42.5.0  cf11b917 Mar 30, 2023          WEX-WEI x86 64bit/MS Windows - 04/02/25 15:47:35 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -78,7 +78,7 @@ INCLUDE    C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDca
   86  Parameter casePublishedSecs(ca,tp) 'Time Weight Seconds apply to case file for final pricing calculation' ;
   87   
   88   
-GDXIN   C:\GitHub\2025_Electricity_Allocation_Factor\Input\Pricing\Pricing_20241007.gdx
+GDXIN   C:\GitHub\2025_Electricity_Allocation_Factor\Input\Pricing\Pricing_20241008.gdx
 --- LOAD  case2dt2tp = 4:i_dateTimeTradePeriodMap
 --- LOAD  casePublishedSecs = 42:i_priceCaseFilesPublishedSecs
   93   
@@ -144,7 +144,7 @@ INCLUDE    C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDtp
  155    scase2dt2tp  = i_DateTimeTradePeriod
  156    ;
  157   
-GAMS 42.5.0  cf11b917 Mar 30, 2023          WEX-WEI x86 64bit/MS Windows - 04/02/25 15:29:50 Page 2
+GAMS 42.5.0  cf11b917 Mar 30, 2023          WEX-WEI x86 64bit/MS Windows - 04/02/25 15:47:35 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 Include File Summary
 
@@ -154,18 +154,18 @@ Include File Summary
      1        1 INPUT          0       0  C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDperiod.gms
      2       14 INCLUDE        1      14  .C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDsettings.inc
      3       62 INCLUDE        1      15  .C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDcase.inc
-     4       66 IF EXIST       1      18  C:\GitHub\2025_Electricity_Allocation_Factor\Input\Pricing\Pricing_20241007.gdx
-     5       89 GDXIN          1      41  C:\GitHub\2025_Electricity_Allocation_Factor\Input\Pricing\Pricing_20241007.gdx
+     4       66 IF EXIST       1      18  C:\GitHub\2025_Electricity_Allocation_Factor\Input\Pricing\Pricing_20241008.gdx
+     5       89 GDXIN          1      41  C:\GitHub\2025_Electricity_Allocation_Factor\Input\Pricing\Pricing_20241008.gdx
      6      100 INCLUDE        1      52  .C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDtpsToSolve.inc
 
 
-COMPILATION TIME     =        0.047 SECONDS      3 MB  42.5.0 cf11b917 WEX-WEI
-GAMS 42.5.0  cf11b917 Mar 30, 2023          WEX-WEI x86 64bit/MS Windows - 04/02/25 15:29:50 Page 3
+COMPILATION TIME     =        0.016 SECONDS      3 MB  42.5.0 cf11b917 WEX-WEI
+GAMS 42.5.0  cf11b917 Mar 30, 2023          WEX-WEI x86 64bit/MS Windows - 04/02/25 15:47:35 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-EXECUTION TIME       =        0.047 SECONDS      4 MB  42.5.0 cf11b917 WEX-WEI
+EXECUTION TIME       =        0.062 SECONDS      4 MB  42.5.0 cf11b917 WEX-WEI
 
 
 USER: Small MUD-5 User License                       G241108|0002CO-GEN

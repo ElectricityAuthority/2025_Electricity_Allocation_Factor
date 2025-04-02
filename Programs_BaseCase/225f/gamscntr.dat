@@ -1,10 +1,10 @@
 52
-2 153277 0 0 425  2.22000000000000E+0002 5  0.00000000000000E+0000 0 1
-32600 0 0 10 13046 19827 202 12571 0 0 0 0
-58250 0 0 0 0 0 0 0
-110997 0
-58116 16 0 0 118 0 0 55189 0 2927
-25286 4 0 0 0 0 0
+2 153377 0 0 425  9.20000000000000E+0001 5  0.00000000000000E+0000 0 1
+32351 0 0 10 12930 19694 202 12455 0 0 0 0
+58060 0 0 0 0 0 0 0
+110396 0
+57926 16 0 0 118 0 0 55012 0 2914
+25328 4 0 0 0 0 0
 1 27 0
 0 0 20
  0.00000000000000E+0000  0.00000000000000E+0000 0
@@ -23,13 +23,13 @@ C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\225f\gamssolu.dat
 
 C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\225f\gamsdict.dat
 3
-15:29:51
+15:47:35
 04/02/25
 C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\
 C:\GAMS\42\
 C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\225f\
 32767 2147483647
-0 0 145 45748 45633 215141
+0 0 145 45748 45633 215241
 Small MUD-5 User License                       G241108|0002CO-GEN0
 Electricity Authority - Te Mana Hiko,                            0
 1138081101COPTCP                                                 0
@@ -262,4 +262,4 @@ dat
 
 
 C:\GitHub\2025_Electricity_Allocation_Factor\Programs_BaseCase\vSPDsolve.gms
- 1.10997000000000E+0005  0.00000000000000E+0000
+ 1.10396000000000E+0005  0.00000000000000E+0000
