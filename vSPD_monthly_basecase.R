@@ -14,7 +14,8 @@ try(
 setwd(current_directory)
 config <- yaml::read_yaml("C:/vSPD/config.yml")
 
-vSPDinputfolder <- paste0(current_directory,'/Input/Pricing/')
+vSPDinputfolder   <- "C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing"
+vSPDoutputfolder  <- "C:/Simulations/EAF_2025/vSPD_5.0.5/Output"
 vSPDprogramfolder <- paste0(current_directory,'/Programs_BaseCase/')
 
 storage_account_name <- config$emidatasetsprd$storage_account_name
@@ -128,11 +129,12 @@ for (m in month2run$MonthID) {
   
   createvSPDSettingInc(runName = paste0("BaseCase_",m),
                        opMode = "SPD",
-                       Inputfolder = "'%system.fp%..\\Input\\Pricing\\'",
+                       Inputfolder = paste0("'",vSPDinputfolder,"'"),
+                       Outputfolder = paste0("'",vSPDoutputfolder,"'"),
                        Incfolder = vSPDprogramfolder)
   
   ##### Run vSPD #####  
-  if (T) {
+  if (F) {
     
     setwd(vSPDprogramfolder)
     
