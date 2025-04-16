@@ -15,7 +15,6 @@ setwd(current_directory)
 config <- yaml::read_yaml("C:/vSPD/config.yml")
 
 vSPDinputfolder   <- "C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing"
-vSPDoutputfolder  <- "C:/Simulations/EAF_2025/vSPD_5.0.5/Output"
 vSPDprogramfolder <- paste0(current_directory,'/Programs_Counter/')
 
 storage_account_name <- config$emidatasetsprd$storage_account_name
@@ -127,10 +126,9 @@ for (m in month2run$MonthID) {
   gdxlist <- list.files(vSPDinputfolder,pattern = paste0("Pricing_",m))
   createListInc(gsub("\\.gdx$", "", gdxlist), Incfolder = vSPDprogramfolder)
   
-  createvSPDSettingInc(runName = paste0("CounterFactual",m),
+  createvSPDSettingInc(runName = paste0("CounterFactual_",m),
                        opMode = "SPD",
                        Inputfolder = paste0("'",vSPDinputfolder,"'"),
-                       Outputfolder = paste0("'",vSPDoutputfolder,"'"),
                        Incfolder = vSPDprogramfolder)
   
   ##### run merge gdx, publish daily gdx and then run vSPD #####  

@@ -3,10 +3,10 @@ $inlinecom ## ##
 $eolcom !
 
 *+++ Paths +++
-$setglobal runName                       CounterFactual202410
+$setglobal runName                       CounterFactual_202407
 
 $setglobal programPath                   '%system.fp%' 
-$setglobal inputPath                     '%system.fp%..\Input\Pricing\'
+$setglobal inputPath                     'C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing'
 $setglobal outputPath                    '%system.fp%..\Output\'
 $setglobal ovrdPath                      '%system.fp%..\Override\'
 
