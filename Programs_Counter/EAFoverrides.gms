@@ -36,7 +36,7 @@ srmc(dt,o) = co2fuelcost(dt,o,'SRMC_Carbon_Exclusive');
 
 
 $onText
-In our third scenario, we assume that energy offers at or below SRMC (fuel cost only) from
+In counter factual , we assume that energy offers at or below SRMC (fuel cost only) from
 thermal generators would remain as currently offered. It make more economic sense that
 these at/below SRMC offers are not impacted by the ETS cost effects.
 The higher-priced offers are adjusted to account for ETS cost effects but adjusted offer price
@@ -54,11 +54,11 @@ energyOffer(ca,dt,o,blk,'price') $ { (co2cost(dt,o) > 0) and (energyOffer(ca,dt,
 
 
 $onText
-In Scenario 4, hydro generators are assumed to make corresponding adjustments to 
+In counter factual, hydro generators are assumed to make corresponding adjustments to 
 their offers to reflect the reduced cost of thermal generation reducing the marginal 
 water value and hence their offers
 
-In our fourth scenario, we assume that hydro energy offers below lowest thermal fuel cost (HLY5)
+In this scenario, we assume that hydro energy offers below lowest thermal fuel cost (HLY5)
 would remain as currently offered as these offers are unlikely to include the ETS cost effects.
 The higher-priced offers are adjusted to account for ETS cost effects as discussed in Section 2.5 below
 
@@ -133,5 +133,36 @@ energyOffer(ca,dt,hydro_offers(o),blk,'price') $ (energyOffer(ca,dt,o,blk,'price
         = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
        
 
+$onText
+In counter factual, battery are assumed to make corresponding adjustments to 
+their offers similar to hydro to reflect the reduced cost of thermal generation reducing the marginal 
+water value and hence their offers
+
+Adjusted offer price  = Original offer price - (Effective NZU price * Average emission intensity factor)
+or
+Adjusted offer price  = Original offer price - Average CO2 cost
+
+if a batter offer has corresponding load then the bid price also adjusted by the smallest adjustement applied to  battery offer tranches 
+$offText
+
+Set battery_offers(o<)       'List of battery offers'      /'HLY0331 RHO0'/ ;
+Set battery_bids(bd<)        'List of battery bids'        /'HLY0331 RHO99'/ ;
+Set battery_offersbids(o,bd) 'Mapping battery offers-bids' /'HLY0331 RHO0'.'HLY0331 RHO99'/;
+
+Parameter battery_adjusted_price(ca,dt,o,blk);
+Parameter battery_min_adjustment(ca,dt,o);
+
+battery_adjusted_price(ca,dt,battery_offers(o),blk) = energyOffer(ca,dt,o,blk,'price') ;
+
+battery_adjusted_price(ca,dt,battery_offers(o),blk) $ (energyOffer(ca,dt,o,blk,'price') > Lowest_srmc_cost(ca,dt))
+        = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
+
+battery_min_adjustment(ca,dt,battery_offers(o)) = smin(blk, energyOffer(ca,dt,o,blk,'price') - battery_adjusted_price(ca,dt,o,blk));
+
+energyBid(ca,dt,battery_bids(bd),blk,'price') $ (energyBid(ca,dt,bd,blk,'limitMW') <> 0)
+        = energyBid(ca,dt,bd,blk,'price') -  sum[o $ battery_offersbids(o,bd), battery_min_adjustment(ca,dt,o)] ;
+        
+energyOffer(ca,dt,battery_offers(o),blk,'price') = battery_adjusted_price(ca,dt,o,blk) ;
+*$offText        
 $offEnd
 
