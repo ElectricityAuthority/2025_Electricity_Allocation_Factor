@@ -157,12 +157,16 @@ battery_adjusted_price(ca,dt,battery_offers(o),blk) = energyOffer(ca,dt,o,blk,'p
 battery_adjusted_price(ca,dt,battery_offers(o),blk) $ (energyOffer(ca,dt,o,blk,'price') > Lowest_srmc_cost(ca,dt))
         = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
 
-battery_min_adjustment(ca,dt,battery_offers(o)) = smin(blk, energyOffer(ca,dt,o,blk,'price') - battery_adjusted_price(ca,dt,o,blk));
+battery_min_adjustment(ca,dt,battery_offers(o)) = 0 ;
+battery_min_adjustment(ca,dt,battery_offers(o)) = smin(blk $ energyOffer(ca,dt,o,blk,'limitMW'), energyOffer(ca,dt,o,blk,'price') - battery_adjusted_price(ca,dt,o,blk));
 
-energyBid(ca,dt,battery_bids(bd),blk,'price') $ (energyBid(ca,dt,bd,blk,'limitMW') <> 0)
+energyBid(ca,dt,battery_bids(bd),blk,'price')
+        $ { (energyBid(ca,dt,bd,blk,'limitMW') <> 0) and sum[o $ battery_offersbids(o,bd), energyOffer(ca,dt,o,blk,'limitMW')]}
         = energyBid(ca,dt,bd,blk,'price') -  sum[o $ battery_offersbids(o,bd), battery_min_adjustment(ca,dt,o)] ;
         
 energyOffer(ca,dt,battery_offers(o),blk,'price') = battery_adjusted_price(ca,dt,o,blk) ;
+
+display energyOffer, energyBid;
 *$offText        
 $offEnd
 
