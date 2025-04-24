@@ -4,6 +4,12 @@
     "nodes": [
         {
             "codecMib": 106,
+            "file": "EAFoverrides.gms",
+            "name": "EAFoverrides.gms",
+            "type": "gms"
+        },
+        {
+            "codecMib": 106,
             "file": "merge_gdx.gms",
             "name": "merge_gdx.gms",
             "type": "gms"
