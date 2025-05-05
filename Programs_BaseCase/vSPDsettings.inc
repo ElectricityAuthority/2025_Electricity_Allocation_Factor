@@ -3,11 +3,11 @@ $inlinecom ## ##
 $eolcom !
 
 *+++ Paths +++
-$setglobal runName                       BaseCase_202410
+$setglobal runName                       BaseCase_202504
 
 $setglobal programPath                   '%system.fp%' 
-$setglobal inputPath                     '%system.fp%..\Input\Pricing\'
-$setglobal outputPath                    '%system.fp%..\Output\'
+$setglobal inputPath                     'C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing/'
+$setglobal outputPath                    'C:/Simulations/EAF_2025/vSPD_5.0.5/Output/'
 $setglobal ovrdPath                      '%system.fp%..\Override\'
 
 $setglobal vSPDinputOvrdData             ''   !Name of override file 
