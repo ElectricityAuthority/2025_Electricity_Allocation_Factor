@@ -3,7 +3,7 @@ $inlinecom ## ##
 $eolcom !
 
 *+++ Paths +++
-$setglobal runName                       BaseCase_202504
+$setglobal runName                       BaseCase_202505
 
 $setglobal programPath                   '%system.fp%' 
 $setglobal inputPath                     'C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing/'
