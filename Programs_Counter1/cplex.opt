@@ -1,0 +1,5 @@
+epopt = 1e-7
+epint = 1e-7
+eprhs = 1e-6
+epgap = 0
+epagap = 0
