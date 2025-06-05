@@ -244,6 +244,19 @@ loop( (ca,dt,tp,MnodeCstr) $ { case2dt2tp(ca,dt,tp) and MnodeConstraint(ca,dt,Mn
         o_MnodeConstraintPrice_TP(ca,dt,MnodeCstr) / ;
 ) ;
 
+* Write energy offers to csv
+File EnergyOffers_TP
+/ "%outputPath%\%runName%\%runName%_EnergyOffers_TP.csv" /;
+EnergyOffers_TP.pc = 5 ;    EnergyOffers_TP.lw = 0 ;
+EnergyOffers_TP.pw = 9999 ; EnergyOffers_TP.ap = 1 ;
+EnergyOffers_TP.nd = 5 ;
+put EnergyOffers_TP ;
+loop( (ca,dt,tp,o,blk) $ { case2dt2tp(ca,dt,tp) and energyOffer(ca,dt,o,blk,'limitMW') },
+    put ca.tl, dt.tl, tp.tl, o.tl, blk.tl,
+        energyOffer(ca,dt,o,blk,'limitMW'),
+        energyOffer(ca,dt,o,blk,'Price') / ;
+) ;
+
 $label SkipTP
 *===============================================================================
 

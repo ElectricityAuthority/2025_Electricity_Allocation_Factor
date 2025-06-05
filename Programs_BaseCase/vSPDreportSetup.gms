@@ -73,6 +73,10 @@ File MNodeCstrResults_TP / "%outputPath%\%runName%\%runName%_MNodeConstraintResu
 MNodeCstrResults_TP.pc = 5; MNodeCstrResults_TP.lw = 0; MNodeCstrResults_TP.pw = 9999 ;
 put MNodeCstrResults_TP 'CaseID','DateTime','Period', 'MNodeConstraint', 'LHS (MW)','Sense (-1:<=, 0:=, 1:>=)', 'RHS (MW)', 'Price ($/MWh)' ;
 
+File EnergyOffers_TP / "%outputPath%\%runName%\%runName%_EnergyOffers_TP.csv" /;
+EnergyOffers_TP.pc = 5; EnergyOffers_TP.lw = 0; EnergyOffers_TP.pw = 9999 ;
+put EnergyOffers_TP 'CaseID','DateTime','Period', 'Offer', 'Tranche', 'Megawatts','DollarsPerMegawattHour' ;
+
 *===============================================================================
 * Audit mode reporting process
 *===============================================================================
