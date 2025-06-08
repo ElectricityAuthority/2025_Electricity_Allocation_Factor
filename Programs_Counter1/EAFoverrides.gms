@@ -48,15 +48,8 @@ Adjusted offer price  = Original offer price - CO2 cost
 
 $offText
 * Modify the Thermal Genertion Offer Price
-*energyOffer(ca,dt,o,blk,'price') $ { (co2cost(dt,o) > 0) and (energyOffer(ca,dt,o,blk,'price') > srmc(dt,o)) }
-*        = max[srmc(dt,o), energyOffer(ca,dt,o,blk,'price') - co2cost(dt,o) ];
-
-energyOffer(ca,dt,o,blk,'price') $ { (co2cost(dt,o) > 0) and (energyOffer(ca,dt,o,blk,'price') < srmc(dt,o) + co2cost(dt,o)) and (energyOffer(ca,dt,o,blk,'price') > 1) }
-        = srmc(dt,o);
-        
-energyOffer(ca,dt,o,blk,'price') $ { (co2cost(dt,o) > 0) and (energyOffer(ca,dt,o,blk,'price') >= srmc(dt,o) + co2cost(dt,o))  }
-        = energyOffer(ca,dt,o,blk,'price') - co2cost(dt,o) ;
-
+energyOffer(ca,dt,o,blk,'price') $ { (co2cost(dt,o) > 0) and (energyOffer(ca,dt,o,blk,'price') > srmc(dt,o)) }
+        = max[srmc(dt,o), energyOffer(ca,dt,o,blk,'price') - co2cost(dt,o) ];
 
 $onText
 In counter factual, hydro generators are assumed to make corresponding adjustments to 
@@ -133,16 +126,8 @@ Average_CO2_cost(case2dt(ca,dt)) = sum[o ,  co2cost(dt,o) * offerParameter(ca,dt
                                  
 Lowest_srmc_cost(ca,dt) = smin[o $ srmc(dt,o), srmc(dt,o)];
 
-
-*energyOffer(ca,dt,hydro_offers(o),blk,'price') $ (energyOffer(ca,dt,o,blk,'price') > Lowest_srmc_cost(ca,dt))
-*        = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
-
-energyOffer(ca,dt,hydro_offers(o),blk,'price') $ { energyOffer(ca,dt,o,blk,'price') < Lowest_srmc_cost(ca,dt) + Average_CO2_cost(ca,dt) and (energyOffer(ca,dt,o,blk,'price') > 1)}
-        = Lowest_srmc_cost(ca,dt);
-        
-energyOffer(ca,dt,hydro_offers(o),blk,'price') $ { energyOffer(ca,dt,o,blk,'price') >= Lowest_srmc_cost(ca,dt) + Average_CO2_cost(ca,dt) }
-        = energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ;
-       
+energyOffer(ca,dt,hydro_offers(o),blk,'price') $ (energyOffer(ca,dt,o,blk,'price') > Lowest_srmc_cost(ca,dt))
+        = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
 
 $onText
 In counter factual, battery are assumed to make corresponding adjustments to 
@@ -165,14 +150,8 @@ Parameter battery_min_adjustment(ca,dt,o);
 
 battery_adjusted_price(ca,dt,battery_offers(o),blk) = energyOffer(ca,dt,o,blk,'price') ;
 
-*battery_adjusted_price(ca,dt,battery_offers(o),blk) $ (energyOffer(ca,dt,o,blk,'price') > Lowest_srmc_cost(ca,dt))
-*        = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
-    
-battery_adjusted_price(ca,dt,battery_offers(o),blk) $ { energyOffer(ca,dt,o,blk,'price') < Lowest_srmc_cost(ca,dt) + Average_CO2_cost(ca,dt) and (energyOffer(ca,dt,o,blk,'price') > 1)}
-        = Lowest_srmc_cost(ca,dt);
-
-battery_adjusted_price(ca,dt,battery_offers(o),blk) $ { energyOffer(ca,dt,o,blk,'price') >= Lowest_srmc_cost(ca,dt) + Average_CO2_cost(ca,dt) }
-        = energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ;
+battery_adjusted_price(ca,dt,battery_offers(o),blk) $ (energyOffer(ca,dt,o,blk,'price') > Lowest_srmc_cost(ca,dt))
+        = max[Lowest_srmc_cost(ca,dt), energyOffer(ca,dt,o,blk,'price') - Average_CO2_cost(ca,dt) ];
 
 battery_min_adjustment(ca,dt,battery_offers(o)) = 0 ;
 battery_min_adjustment(ca,dt,battery_offers(o)) = smin(blk $ energyOffer(ca,dt,o,blk,'limitMW'), energyOffer(ca,dt,o,blk,'price') - battery_adjusted_price(ca,dt,o,blk));
