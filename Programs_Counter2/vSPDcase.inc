@@ -1,1 +1,1 @@
-$setglobal  GDXname  Pricing_20250401
+$setglobal  GDXname  Pricing_20250531

@@ -3,7 +3,7 @@ $inlinecom ## ##
 $eolcom !
 
 *+++ Paths +++
-$setglobal runName                       CounterFactual2_20250401
+$setglobal runName                       CounterFactual2_202505
 
 $setglobal programPath                   '%system.fp%' 
 $setglobal inputPath                     'C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing/'
