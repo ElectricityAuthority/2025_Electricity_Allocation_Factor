@@ -14,7 +14,7 @@ try(
 setwd(current_directory)
 config <- yaml::read_yaml("C:/vSPD/config.yml")
 
-vSPDinputfolder   <- paste0(current_directory,"/Input/Pricing/")
+vSPDinputfolder   <- paste0(current_directory,"/Input/")
 vSPDoutputfolder  <- paste0(current_directory,"/Output/")
 vSPDprogramfolder <- paste0(current_directory,'/Programs_Counter/')
 

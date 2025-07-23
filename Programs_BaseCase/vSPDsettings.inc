@@ -6,9 +6,9 @@ $eolcom !
 $setglobal runName                       BaseCase_202506
 
 $setglobal programPath                   '%system.fp%' 
-$setglobal inputPath                     'C:/GitHub/2025_Electricity_Allocation_Factor/Input/Pricing/'
-$setglobal outputPath                    'C:/GitHub/2025_Electricity_Allocation_Factor/Output/'
-$setglobal ovrdPath                      '%system.fp%..\Override\'
+$setglobal inputPath                     '%system.fp%../Input/'
+$setglobal outputPath                    '%system.fp%../Output/'
+$setglobal ovrdPath                      '%system.fp%../Override/'
 
 $setglobal vSPDinputOvrdData             ''   !Name of override file 
 
