@@ -11,7 +11,15 @@ Sys.setlocale("LC_TIME", "C")
 
 FinacialYear <- "2024/2025"
 
-reconciled_load <- read.csv("Data/Reconciled_Offtake.csv") %>%
+
+# Define the path to the zip file
+zip_file <- "Data/Reconciled_Offtake.zip"
+# List the contents of the zip file
+zip_contents <- unzip(zip_file, list = TRUE)
+# Extract the CSV file from the zip archive
+csv_file <- unzip(zip_file, files = "Reconciled_Offtake.csv", exdir = tempdir())
+# Read the CSV file into R
+reconciled_load <- read.csv("csv_file") %>%
   transmute(TradingDate = as.Date(TradingDate,'%Y-%m-%d'),
             TradingPeriod = TradingPeriodNumber,
             Node = PointOfConnectionCode, MWh)
