@@ -14,18 +14,9 @@ try(
 setwd(current_directory)
 config <- yaml::read_yaml("C:/vSPD/config.yml")
 
-vSPDinputfolder   <- "C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing/"
-vSPDoutputfolder  <- "C:/Simulations/EAF_2025/vSPD_5.0.5/Output/"
+vSPDinputfolder   <- paste0(current_directory,"/Input/Pricing/")
+vSPDoutputfolder  <- paste0(current_directory,"/Output/")
 vSPDprogramfolder <- paste0(current_directory,'/Programs_BaseCase/')
-
-storage_account_name <- config$emidatasetsprd$storage_account_name
-storage_account_key <- config$emidatasetsprd$storage_account_key
-containername <- config$emidatasetsprd$container_name
-
-# Create a connection to your emidatasetdev/public container
-endpoint             <- paste0("https://", storage_account_name, ".blob.core.windows.net")
-blobenpoint          <- blob_endpoint(endpoint = endpoint, key = storage_account_key)
-emidataset_container <- blob_container(endpoint = blobenpoint, name = containername)
 
 ##### Functions ####
 createListInc <- function(gdxlist, Incfolder = "Programs") {
@@ -105,25 +96,6 @@ for (m in month2run$MonthID) {
   tic <- Sys.time()
   print(paste0("vSPD run for month ", m))
     
-  ##### Download gdx files for vSPD run #####  
-  dir <- paste0('Datasets/Wholesale/DispatchAndPricing/GDX/',substr(m,1,4),'/')
-  
-  gdxlist <- list.files(vSPDinputfolder,pattern = paste0("Pricing_",m))
-  
-  listblob <- list_blobs(container = emidataset_container, dir = dir) %>% 
-    mutate(gdxname = basename(name)) %>% 
-    filter(startsWith(gdxname,paste0("Pricing_",m))) %>%
-    filter(!(gdxname %in% gdxlist))
-  
-  
-  # Download Pricing gdx files
-  if (nrow(listblob) > 0) {
-    multidownload_blob(container = emidataset_container, 
-                       src = paste0(dir,listblob$gdxname), 
-                       dest = paste0(vSPDinputfolder,listblob$gdxname),
-                       overwrite = T)
-  }
-  
   gdxlist <- list.files(vSPDinputfolder,pattern = paste0("Pricing_",m))
   createListInc(gsub("\\.gdx$", "", gdxlist), Incfolder = vSPDprogramfolder)
   
@@ -146,6 +118,7 @@ for (m in month2run$MonthID) {
   
   toc <- Sys.time()
   print(paste0("vSPD run for month ",m, " completes in ", difftime(toc,tic,unit="hour"), " hours"))
+  readline(prompt = "Press [Enter] to continue...")
   
 }
 

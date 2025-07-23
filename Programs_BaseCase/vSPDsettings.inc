@@ -3,11 +3,11 @@ $inlinecom ## ##
 $eolcom !
 
 *+++ Paths +++
-$setglobal runName                       BaseCase_Missing
+$setglobal runName                       BaseCase_202506
 
 $setglobal programPath                   '%system.fp%' 
-$setglobal inputPath                     'C:/Simulations/EAF_2025/vSPD_5.0.5/Input/Pricing/'
-$setglobal outputPath                    'C:/Simulations/EAF_2025/vSPD_5.0.5/Output/'
+$setglobal inputPath                     'C:/GitHub/2025_Electricity_Allocation_Factor/Input/Pricing/'
+$setglobal outputPath                    'C:/GitHub/2025_Electricity_Allocation_Factor/Output/'
 $setglobal ovrdPath                      '%system.fp%..\Override\'
 
 $setglobal vSPDinputOvrdData             ''   !Name of override file 
