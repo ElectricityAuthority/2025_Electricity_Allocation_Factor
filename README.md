@@ -32,7 +32,7 @@ Run **Caluclate_EAF_2024_2025.R**.
 **runName_EnergyOffers_TP.csv**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> display energy offers in readable format.  
 **runName_IslandResults_TP.csv**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> display island summary results.  
 **runName_OfferResults_TP.csv**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> display cleared generation/reserve results.  
-**runName_PublishedEnergyPrices_TP.csv**&nbsp;--> display trading period final prices.  
+**runName_PublishedEnergyPrices_TP.csv**&nbsp;&nbsp;--> display trading period final prices.  
 
 ### Other available outputs (on request):
 runName_BidResults_TP.csv              
