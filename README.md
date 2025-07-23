@@ -35,13 +35,13 @@ Run **Caluclate_EAF_2024_2025.R**.
 **runName_PublishedEnergyPrices_TP.csv**&nbsp;&nbsp;--> display trading period final prices.  
 
 ### Other available outputs (on request):
-runName_BidResults_TP.csv              
-runName_BranchResults_TP.csv
-runName_BrConstraintResults_TP.csv    
-runName_BusResults_TP.csv
-runName_MNodeConstraintResults_TP.csv
-runName_NodeResults_TP.csv
-runName_PublishedReservePrices_TP.csv
-runName_ReserveResults_TP.csv
-runName_RiskResults_TP.csv
+runName_BidResults_TP.csv  
+runName_BranchResults_TP.csv  
+runName_BrConstraintResults_TP.csv  
+runName_BusResults_TP.csv  
+runName_MNodeConstraintResults_TP.csv  
+runName_NodeResults_TP.csv  
+runName_PublishedReservePrices_TP.csv  
+runName_ReserveResults_TP.csv  
+runName_RiskResults_TP.csv  
 runName_SummaryResults_TP.csv
