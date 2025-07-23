@@ -30,10 +30,10 @@ Run **Caluclate_EAF_2024_2025.R**.
 
 ### Published outputs on GitHub:
 ```text
-**runName_EnergyOffers_TP.csv**          --> display energy offers in readable format.  
-**runName_IslandResults_TP.csv**         --> display island summary results.  
-**runName_OfferResults_TP.csv**          --> display cleared generation/reserve results.  
-**runName_PublishedEnergyPrices_TP.csv** --> display trading period final prices.  
+runName_EnergyOffers_TP.csv          --> display energy offers in readable format.  
+runName_IslandResults_TP.csv         --> display island summary results.  
+runName_OfferResults_TP.csv          --> display cleared generation/reserve results.  
+runName_PublishedEnergyPrices_TP.csv --> display trading period final prices.  
 ```
 
 ### Other available outputs (on request):
