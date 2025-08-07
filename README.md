@@ -6,24 +6,24 @@ EAF simulation instructions
 
 ## Steps to run Simulation:
 
-1. Prepare Input Data
+1. Prepare Input Data:  
 Download 365 GDX files (from 2024-07-01 to 2025-06-30) into the **Input** folder.
 Files are available on the [EMI website](https://www.emi.ea.govt.nz/Wholesale/Datasets/DispatchAndPricing/GDX/) or via Azure storage (see [instructions](https://www.emi.ea.govt.nz/Forum/thread/new-access-arrangements-to-emi-datasets-retirement-of-anonymous-ftp/) 
 on the EMI forum).
 
-2. Base case simulation:
+2. Base case simulation:  
 Use either:
 **Run_vSPD_Base.bat**, or
 **vSPD_monthly_basecase.R**
 
-3. Counter-factual simulation:
+3. Counter-factual simulation:  
 Use either:
 **Run_vSPD_Counter.bat**, or
 **vSPD_monthly_counter.R**
 
 **_Note_**: _Simulation outputs are saved in the **Output** folder by default._
 
-4. Calculate EAF for financial year 2024/2025.
+4. Calculate EAF for financial year 2024/2025.  
 Run **Caluclate_EAF_2024_2025.R**.
 
 **Note**: Due to data volume, not all vSPD outputs are published in this repository. For full access, contact: Tuong.Nguyen@ea.govt.nz.
